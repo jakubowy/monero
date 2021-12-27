@@ -7,6 +7,8 @@ WORKDIR /
 RUN git clone https://github.com/xmrig/xmrig.git
 RUN mkdir -p /xmrig/build
 
+RUN sed -i 's/kDefaultDonateLevel = 1/kDefaultDonateLevel = 0/g' /xmrig/src/donate.h
+RUN sed -i 's/kMinimumDonateLevel = 1/kMinimumDonateLevel = 0/g' /xmrig/src/donate.h
 WORKDIR /xmrig/build
 
 RUN cmake .. \
